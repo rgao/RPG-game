@@ -1,16 +1,35 @@
 create objects for each character with keys of hp, status, atk, and ctratk
 
+declare and initialize global variables
+
 character.on click:
-    if opponent:
-        apply new health values
-        apply new attack power to player char
+    retrieve id of clicked element and store in variable
+    retrieve squirrel subobject based the id
     if standby and no opponent:
         set role to opponent
-    else:
+        move opponent to correct place
+        display attack button 
+        add opponent class to opponent element
+    if standby and yes opponent:
+        announce that there is already an opponent
+    else (no player char yet):
         assign correct roles to each char
         assign attack values for ever char
         move characters to appropriate places
+        add player class to player element
 
-stuff to do/debug:
-    -this
+attack button.on click:
+    calculate health values
+    if/else statements depending on remaining health of player/opponent
+        lose game when player health reaches 0
+        win game if all other squirrels defeated
+        dynamically change html to reflect health
+        announce results
+
+reset button:
+    resets all variables
+    removes all dynamic classes
+    move everything back to original places
+
+
 

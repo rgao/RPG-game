@@ -40,10 +40,9 @@ $(document).ready(function() {
     var victims = [];
 
     $(".character").on("click", function() {
-
         // generic annoucement message whenever there's an opponent
         if (opponent !== false) {
-            $(".announcement").text("Triump over the enemy rodent incursion to claim your stash of nuts!");
+            $(".announcement").text("Triumph over the enemy rodent incursion to claim your stash of nuts!");
         }
         // retrieve id of clicked squirrel
         var this_rodent_name = $(this).attr("id")
@@ -56,7 +55,7 @@ $(document).ready(function() {
             $(".main-event").append(this);
             $(this).addClass("opponent");
             $("#attackBtn").show();
-            $(".announcement").text("Triump over the enemy rodent incursion to claim your stash of nuts!");       
+            $(".announcement").text("Triumph over the enemy rodent incursion to claim your stash of nuts!");       
             
         // prevent having more than 1 opponent at once
         } else if (this_rodent.role === "standby" && opponent !== false && player.health > 0) {
@@ -88,8 +87,6 @@ $(document).ready(function() {
 
     $("#attackBtn").on("click", function() {
         
-        // $(".announcement").text("Triump over the enemy rodent incursion to claim your stash of nuts!");
-
         // the rodents battle and apply math to health/attack
         if (player.health > 0) {
             opponent.health -= player.attack;
@@ -142,6 +139,7 @@ $(document).ready(function() {
     });
 
     $("#resetBtn").on("click", function() {
+        
         squirrels = {
             "fox": {
                 role: "none",
