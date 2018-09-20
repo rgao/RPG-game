@@ -12,7 +12,5 @@ character.on click:
         move characters to appropriate places
 
 stuff to do/debug:
-    -reset button
-    -create html divs to display values
-    -situation where both hp < 0?
-    -defeated column?
+    -this
+
