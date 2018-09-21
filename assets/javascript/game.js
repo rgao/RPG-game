@@ -7,30 +7,30 @@ $(document).ready(function() {
     var squirrels = {       
         "fox": {
             role: "none",
-            health: 180,
+            health: 120,
             attack: 5,
-            ctrattack: 55,
+            ctrattack: 10,
         },
 
         "gray": {
             role: "none",
-            health: 150,
+            health: 100,
             attack: 4,
-            ctrattack: 5,
+            ctrattack: 12,
         },
 
         "red": {
             role: "none",
-            health: 120,
+            health: 90,
             attack: 3,
-            ctrattack: 5,
+            ctrattack: 6,
         },
 
         "chipmunk": {
             role: "none",
-            health: 100,
-            attack: 3,
-            ctrattack: 25,
+            health: 75,
+            attack: 4,
+            ctrattack: 8,
         },
     };
 
@@ -90,6 +90,10 @@ $(document).ready(function() {
 
 
     $("#attackBtn").on("click", function() {
+
+        // $("#atk-audio").pause();
+        // $("#atk-audio").currentTime = 0;
+        // $("#atk-audio").play();
         
         // the rodents battle and apply math to health/attack
         if (player.health > 0) {
@@ -134,7 +138,7 @@ $(document).ready(function() {
                 // victory announcements
                 if (victims.length === 3) {
                     $(".announcement").text("Congratulations, You Win! The Nut Stash is Yours!");
-                    $("#resetBtn").show();
+                    $(".r-container").show();
                 } else {
                     $(".announcement").text("Good job! Now select your next victim.");
                 };
@@ -147,33 +151,33 @@ $(document).ready(function() {
 
     $("#resetBtn").on("click", function() {
 
-        squirrels = {
+        squirrels = {       
             "fox": {
                 role: "none",
-                health: 180,
-                attack: 5,
-                ctrattack: 55,
+                health: 120,
+                attack: 7,
+                ctrattack: 10,
             },
     
             "gray": {
                 role: "none",
-                health: 150,
-                attack: 4,
-                ctrattack: 5,
+                health: 100,
+                attack: 7,
+                ctrattack: 12,
             },
     
             "red": {
                 role: "none",
-                health: 120,
-                attack: 3,
-                ctrattack: 5,
+                health: 90,
+                attack: 5,
+                ctrattack: 6,
             },
     
             "chipmunk": {
                 role: "none",
-                health: 100,
-                attack: 3,
-                ctrattack: 5,
+                health: 75,
+                attack: 6,
+                ctrattack: 8,
             },
         };
        
