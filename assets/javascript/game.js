@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    document.getElementById("audio").play();
+
     $(".secretBtn").hide();
     $(".s-container").hide();
     $(".v-container").hide();
@@ -91,9 +93,7 @@ $(document).ready(function() {
 
     $("#attackBtn").on("click", function() {
 
-        // $("#atk-audio").pause();
-        // $("#atk-audio").currentTime = 0;
-        // $("#atk-audio").play();
+        document.getElementById("atk-audio").play();
         
         // the rodents battle and apply math to health/attack
         if (player.health > 0) {
@@ -105,6 +105,7 @@ $(document).ready(function() {
 
             // losing
             if (player.health <= 0) {
+                document.getElementById("dying-audio").play();
                 $("p", ".player").text("Health: 0");
                 $(".r-container").show();
                 $(".v-container").show();
@@ -115,6 +116,8 @@ $(document).ready(function() {
                     $("p", ".opponent").text("Health: 0");
                     $(".announcement").text("DOUBLE KNOCKOUT! No one gets the stash!");
                     opponent = false;
+                    document.getElementById("elephant").play();
+
                 } else {
                     $("p", ".opponent").text("Health: " + opponent.health);
                     $(".announcement").text("Oh no! The enemy has claimed the Nut Stash!");
@@ -122,10 +125,12 @@ $(document).ready(function() {
                     $(".opponent").removeClass("opponent");
                     $(".player").removeClass("col");
                     $(".victims").append($(".player"));
-                }
+                    document.getElementById("elephant").play();
+                };
             
             // events when opponent defeated
             } else if (opponent.health <= 0) {
+                document.getElementById("dying-audio").play();
                 $(".v-container").show();
                 $("p", ".player").text("Health: " + player.health);
                 $("p", ".opponent").text("Health: 0");
@@ -137,6 +142,7 @@ $(document).ready(function() {
 
                 // victory announcements
                 if (victims.length === 3) {
+                    document.getElementById("winning").play();
                     $(".announcement").text("Congratulations, You Win! The Nut Stash is Yours!");
                     $(".r-container").show();
                 } else {
