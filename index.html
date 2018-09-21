@@ -9,7 +9,7 @@
 
         <title>Acorn Paradise</title>
 
-        <!-- <link rel="icon" type="image/jpg" href="assets/images/gemicon.jpg"> -->
+        <link rel="icon" type="image/png" href="assets/images/acorn.png">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -21,13 +21,16 @@
     </head>
 
     <body>
+
+        <audio id="audio" autoplay loop src="assets/audio/rainforest.mp3"></audio>
+
         <div class="container-fluid">
-            <header class="row justify-content-center my-3">
+            <header class="row justify-content-center mb-3">
                 <h1 class="pt-1">War of Nuts</h1>
             </header>
 
-            <div class="row justify-content-center my-2">
-                <h2 class="announcement">Select a Fuzzy Friend of the Forest to Begin!</h2>
+            <div class="row justify-content-center my-5">
+                <h3 class="announcement">Select a Fuzzy Friend of the Forest to Begin!</h2>
             </div>
 
             <div class="row main-event">
@@ -64,29 +67,38 @@
                     <p></p>
                 </div>
 
-                <div class="col secretBtn text-center" id="attackBtn">
-                    <button type="button" class="btn btn-outline-danger">Fight!</button>
+                <div class="col secretBtn text-center a-container">
+                    <button type="button" class="btn btn-outline-danger" id="attackBtn">Fight!</button>
                 </div>
 
             </div>
 
             <div class="row">
-                <div class="col-4 standby text-center">
-                    Standby
+                <div class="col-3 col-sm-4 s-container text-center">
+                    <div class="standby_victims">Standby</div>
+                    <div class="row standby justify-content-center my-4"></div>
                 </div>
 
-                <div class="col secretBtn text-center" id="resetBtn">
-                    <button type="button" class="btn row btn-outline-primary my-5">Play Again!</button>
-                    <img src='assets/images/acorn_pile.jpg' class='row rounded my-5' id='stash'>
+                <div class="col">
+                    <div class="secretBtn text-center r-container">
+                        <button type="button" class="btn row btn-outline-primary my-5" id="resetBtn">Play Again!</button>
+                        <img src='assets/images/acorn_pile.jpg' class='row rounded mt-1' id='stash'>
+                    </div>
                 </div>
 
-                <div class="col-4 victims text-center">
-                    Victims
+                <div class="col-3 col-sm-4 v-container text-center">
+                    <div class="standby_victims">Victims</div>
+                    <div class="row victims justify-content-center my-4"></div>
                 </div>
             </div>
         </div>
-    </body>
 
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
+        <footer class="footer fixed-bottom copyright text-center pt-2">      
+                Copyright &copy; 2018
+        </footer>
+
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+    </body>
 
 </html>

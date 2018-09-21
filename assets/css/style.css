@@ -10,31 +10,60 @@ header {
     background-color: green;
 }
 
-.announcement, .standby {
-    color: lightskyblue;
+.announcement {
+    color: lightblue;
 }
 
 .character {
     color: orange;
-    border: 2px solid magenta;
 }
+
+/* .rounded-circle:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,255,255, 0.5);
+    transition: all .3s linear;
+} */
 
 .rounded-circle {
     width: 150px;
     height: auto;
+    border: 4px solid gold;
+}
+
+.s-container {
+    color: green;
+}
+
+.standby_victims {
+    background-color: lightblue;
+    border: 1px solid gold;
 }
 
 p {
     color: lightgreen;
 }
 
-.victims {
+.v-container {
     color: orangered;
 }
 
 #stash {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: auto;
     margin: auto;
+    border: 4px solid brown;
+}
 
+footer {
+    color: #ffffff;
+    background-color: #666666;
+    height: 40px;
+    font-size: 12px;
 }

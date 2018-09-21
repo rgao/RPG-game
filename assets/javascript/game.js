@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
     $(".secretBtn").hide();
-    $(".standby").hide();
-    $(".victims").hide();
+    $(".s-container").hide();
+    $(".v-container").hide();
 
     var squirrels = {       
         "fox": {
@@ -34,8 +34,6 @@ $(document).ready(function() {
         },
     };
 
-    // var clone = Object.create(squirrels);
-
     // no player chosen, no opponent chosen, and no victims yet
     var player = false;  
     var opponent = false;
@@ -57,7 +55,7 @@ $(document).ready(function() {
             $(".main-event").append(this);
             $(this).addClass("col opponent");
             $("img", this).css("border", "4px solid orangered");
-            $("#attackBtn").show();
+            $(".a-container").show();
             $(".announcement").text("Triumph over the enemy rodent incursion to claim your stash of nuts!");       
             
         // prevent having more than 1 opponent at once
@@ -76,7 +74,7 @@ $(document).ready(function() {
             base_atk = player.attack;
 
             // changing others to standby and moving them to the standby area
-            $(".standby").show();
+            $(".s-container").show();
             $(".character").each(function() {
                 var rodent = $(this).attr("id");
                 $("p", this).text("Health: " + squirrels[rodent].health);
@@ -104,9 +102,9 @@ $(document).ready(function() {
             // losing
             if (player.health <= 0) {
                 $("p", ".player").text("Health: 0");
-                $("#resetBtn").show();
-                $(".victims").show();
-                $("#attackBtn").hide();
+                $(".r-container").show();
+                $(".v-container").show();
+                $(".a-container").hide();
 
                 // for when both the player and opponent dies at the same time or when just the player dies
                 if (opponent.health <= 0) {
@@ -124,12 +122,12 @@ $(document).ready(function() {
             
             // events when opponent defeated
             } else if (opponent.health <= 0) {
-                $(".victims").show();
+                $(".v-container").show();
                 $("p", ".player").text("Health: " + player.health);
                 $("p", ".opponent").text("Health: 0");
                 $(".victims").append($(".opponent"));
                 victims.push(1);
-                $("#attackBtn").hide();
+                $(".a-container").hide();
                 opponent = false;
                 $(".opponent").removeClass("col opponent");
 
@@ -179,17 +177,18 @@ $(document).ready(function() {
             },
         };
        
-        // console.log(squirrels)
         player = false;
         victims = [];
         this_rodent_name = null;
         this_rodent = null;
         rodent = null;
-        $("#resetBtn").hide();
-        $(".standby").hide();
-        $(".victims").hide();
+        $(".r-container").hide();
+        $(".s-container").hide();
+        $(".v-container").hide();
         $(".character").each(function() {
             $(this).removeClass("player opponent");
+            $(this).addClass("col");
+            $("img", this).css("border", "4px solid gold");
             $(".main-event").prepend(this);
             $("p", this).empty();
         });
@@ -197,7 +196,7 @@ $(document).ready(function() {
         $(".main-event").append($("#gray"));
         $(".main-event").append($("#red"));
         $(".main-event").append($("#chipmunk"));
-        $(".main-event").append($("#attackBtn"));
+        $(".main-event").append($(".a-container"));
         $(".announcement").text("Select a Squirrel to Begin!");
     })
 })
