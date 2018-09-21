@@ -1,4 +1,40 @@
-img {
+body {
+    background-image: url("../images/forest3.jpg");
+    background-size: cover;
+    font-family: 'Impact';
+}
+
+header {
+    color: brown;
+    border: 3px double gold;
+    background-color: green;
+}
+
+.announcement, .standby {
+    color: lightskyblue;
+}
+
+.character {
+    color: orange;
+    border: 2px solid magenta;
+}
+
+.rounded-circle {
+    width: 150px;
+    height: auto;
+}
+
+p {
+    color: lightgreen;
+}
+
+.victims {
+    color: orangered;
+}
+
+#stash {
     width: 300px;
     height: auto;
+    margin: auto;
+
 }

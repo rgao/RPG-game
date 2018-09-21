@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
     $(".secretBtn").hide();
+    $(".standby").hide();
+    $(".victims").hide();
 
     var squirrels = {       
         "fox": {
@@ -53,7 +55,8 @@ $(document).ready(function() {
             this_rodent.role = "opponent";
             opponent = this_rodent;
             $(".main-event").append(this);
-            $(this).addClass("opponent");
+            $(this).addClass("col opponent");
+            $("img", this).css("border", "4px solid orangered");
             $("#attackBtn").show();
             $(".announcement").text("Triumph over the enemy rodent incursion to claim your stash of nuts!");       
             
@@ -69,13 +72,16 @@ $(document).ready(function() {
             this_rodent.attack = 5;
             player = this_rodent;
             $(this).addClass("player");
+            $("img", this).css("border", "4px solid green");
             base_atk = player.attack;
 
             // changing others to standby and moving them to the standby area
+            $(".standby").show();
             $(".character").each(function() {
                 var rodent = $(this).attr("id");
                 $("p", this).text("Health: " + squirrels[rodent].health);
                 if (rodent !== this_rodent_name) {
+                    $(this).removeClass("col");
                     squirrels[rodent].role = "standby";
                     $(".standby").append(this);
                 };
@@ -99,6 +105,7 @@ $(document).ready(function() {
             if (player.health <= 0) {
                 $("p", ".player").text("Health: 0");
                 $("#resetBtn").show();
+                $(".victims").show();
                 $("#attackBtn").hide();
 
                 // for when both the player and opponent dies at the same time or when just the player dies
@@ -106,23 +113,25 @@ $(document).ready(function() {
                     $("p", ".opponent").text("Health: 0");
                     $(".announcement").text("DOUBLE KNOCKOUT! No one gets the stash!");
                     opponent = false;
-                    $(".opponent").removeClass("opponent");
                 } else {
                     $("p", ".opponent").text("Health: " + opponent.health);
                     $(".announcement").text("Oh no! The enemy has claimed the Nut Stash!");
                     opponent = false;
                     $(".opponent").removeClass("opponent");
+                    $(".player").removeClass("col");
+                    $(".victims").append($(".player"));
                 }
             
             // events when opponent defeated
             } else if (opponent.health <= 0) {
+                $(".victims").show();
                 $("p", ".player").text("Health: " + player.health);
                 $("p", ".opponent").text("Health: 0");
                 $(".victims").append($(".opponent"));
                 victims.push(1);
                 $("#attackBtn").hide();
                 opponent = false;
-                $(".opponent").removeClass("opponent");
+                $(".opponent").removeClass("col opponent");
 
                 // victory announcements
                 if (victims.length === 3) {
@@ -139,7 +148,7 @@ $(document).ready(function() {
     });
 
     $("#resetBtn").on("click", function() {
-        
+
         squirrels = {
             "fox": {
                 role: "none",
@@ -177,6 +186,8 @@ $(document).ready(function() {
         this_rodent = null;
         rodent = null;
         $("#resetBtn").hide();
+        $(".standby").hide();
+        $(".victims").hide();
         $(".character").each(function() {
             $(this).removeClass("player opponent");
             $(".main-event").prepend(this);

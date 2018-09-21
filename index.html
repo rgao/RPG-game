@@ -22,53 +22,66 @@
 
     <body>
         <div class="container-fluid">
-            <header class="row">
-                <h1>War of Nuts</h1>
+            <header class="row justify-content-center my-3">
+                <h1 class="pt-1">War of Nuts</h1>
             </header>
 
-            <div class="row announcement">Select a Squirrel to Begin!</div>
+            <div class="row justify-content-center my-2">
+                <h2 class="announcement">Select a Fuzzy Friend of the Forest to Begin!</h2>
+            </div>
 
             <div class="row main-event">
 
-                <div class="col character" id="fox">
-                    <img src="assets/images/fox-squirrel.jpg">
+                <div class="col character text-center" id="fox">
+                    <img class="rounded-circle" src="assets/images/fox-squirrel.jpg">
+                    <br>
+                    Fox
+                    <br>
                     <p></p>
                 </div>
 
-                <div class="col character" id="gray">
-                    <img src="assets/images/gray-squirrel.jpg">
+                <div class="col character text-center" id="gray">
+                    <img class="rounded-circle" src="assets/images/gray-squirrel.jpg">
+                    <br>
+                    Western Gray
+                    <br>
                     <p></p>
                 </div>
 
-                <div class="col character" id="red">
-                    <img src="assets/images/red-squirrel.jpg">
+                <div class="col character text-center" id="red">
+                    <img class="rounded-circle" src="assets/images/red-squirrel.jpg">
+                    <br>
+                    Red 
+                    <br>
                     <p></p>
                 </div>
 
-                <div class="col character" id="chipmunk">
-                    <img src="assets/images/chipmunk.jpg">
+                <div class="col character text-center" id="chipmunk">
+                    <img class="rounded-circle" src="assets/images/chipmunk.jpg">
+                    <br>
+                    Chipmunk 
+                    <br>
                     <p></p>
                 </div>
 
-                <div class="col secretBtn" id="attackBtn">
+                <div class="col secretBtn text-center" id="attackBtn">
                     <button type="button" class="btn btn-outline-danger">Fight!</button>
                 </div>
 
             </div>
 
             <div class="row">
-                <div class="col standby">
-                    standby
-                </div>
-                <div class="col stash">
-
-                <div class="secretBtn" id="resetBtn">
-                    <button type="button" class="btn btn-outline-danger">Play Again!</button>
+                <div class="col-4 standby text-center">
+                    Standby
                 </div>
 
+                <div class="col secretBtn text-center" id="resetBtn">
+                    <button type="button" class="btn row btn-outline-primary my-5">Play Again!</button>
+                    <img src='assets/images/acorn_pile.jpg' class='row rounded my-5' id='stash'>
                 </div>
-                <div class="col victims">
-                    your victims
+
+                <div class="col-4 victims text-center">
+                    Victims
                 </div>
             </div>
         </div>
